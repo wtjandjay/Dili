@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.diligroup"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        name="com.diligroup.base.MyApplication"
+        android:name="com.android.tools.fd.runtime.BootstrapApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.diligroup.MainActivity" >
+        </activity>
+        <activity android:name="com.diligroup.activity.NearShopActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.diligroup.activity.ShopSelectActivity" />
+        <activity android:name="com.diligroup.activity.RegistActivity" />
+        <activity android:name="com.diligroup.activity.LoginActivity" />
+        <activity android:name="com.diligroup.activity.UserInfoActivity" />
+        <activity android:name="com.diligroup.activity.user.ReportSex" />
+        <activity android:name="com.diligroup.activity.user.ReportBirthday" />
+        <activity android:name="com.diligroup.activity.user.ReportHeight" />
+        <activity android:name="com.diligroup.activity.user.ReportWeight" />
+        <activity android:name="com.diligroup.activity.user.ReportMinZu" />
+        <activity android:name="com.diligroup.activity.user.ReportWhere" />
+        <activity android:name="com.diligroup.activity.user.ReportTaste" />
+        <activity android:name="com.diligroup.activity.user.ReportNoeat" />
+        <activity android:name="com.diligroup.activity.user.ReportWork" />
+        <activity android:name="com.diligroup.activity.user.ReportSpecial" />
+        <activity android:name="com.diligroup.activity.user.ReportOther" />
+        <activity android:name="com.diligroup.activity.SettingActivity" />
+        <activity android:name="com.diligroup.activity.UserCenterView" />
+        <activity android:name="com.diligroup.HomeActivity" >
+        </activity>
+        <activity android:name="com.diligroup.activity.AddFoodView" >
+        </activity>
+    </application>
+
+</manifest>

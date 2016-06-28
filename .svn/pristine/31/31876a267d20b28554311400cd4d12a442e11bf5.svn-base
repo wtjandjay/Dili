@@ -1,0 +1,36 @@
+// Generated code from Butter Knife. Do not modify!
+package com.diligroup.activity.user;
+
+import android.view.View;
+import butterknife.ButterKnife.Finder;
+
+public class ReportWork$$ViewBinder<T extends com.diligroup.activity.user.ReportWork> extends com.diligroup.base.BaseAcitvity$$ViewBinder<T> {
+  @Override public void bind(final Finder finder, final T target, Object source) {
+    super.bind(finder, target, source);
+
+    View view;
+    view = finder.findRequiredView(source, 2131493076, "field 'tag_layout1'");
+    target.tag_layout1 = finder.castView(view, 2131493076, "field 'tag_layout1'");
+    view = finder.findRequiredView(source, 2131493077, "field 'tag_layout2'");
+    target.tag_layout2 = finder.castView(view, 2131493077, "field 'tag_layout2'");
+    view = finder.findRequiredView(source, 2131493078, "field 'tag_layout3'");
+    target.tag_layout3 = finder.castView(view, 2131493078, "field 'tag_layout3'");
+    view = finder.findRequiredView(source, 2131493079, "method 'reportWorkData'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.reportWorkData();
+        }
+      });
+  }
+
+  @Override public void unbind(T target) {
+    super.unbind(target);
+
+    target.tag_layout1 = null;
+    target.tag_layout2 = null;
+    target.tag_layout3 = null;
+  }
+}

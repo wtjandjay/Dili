@@ -1,0 +1,52 @@
+// Generated code from Butter Knife. Do not modify!
+package com.diligroup.activity;
+
+import android.view.View;
+import butterknife.ButterKnife.Finder;
+
+public class LoginActivity$$ViewBinder<T extends com.diligroup.activity.LoginActivity> extends com.diligroup.base.BaseAcitvity$$ViewBinder<T> {
+  @Override public void bind(final Finder finder, final T target, Object source) {
+    super.bind(finder, target, source);
+
+    View view;
+    view = finder.findRequiredView(source, 2131492971, "field 'username'");
+    target.username = finder.castView(view, 2131492971, "field 'username'");
+    view = finder.findRequiredView(source, 2131492972, "field 'et_password'");
+    target.et_password = finder.castView(view, 2131492972, "field 'et_password'");
+    view = finder.findRequiredView(source, 2131492974, "field 'loginProgress'");
+    target.loginProgress = finder.castView(view, 2131492974, "field 'loginProgress'");
+    view = finder.findRequiredView(source, 2131492976, "field 'bt_regist' and method 'doRegist'");
+    target.bt_regist = finder.castView(view, 2131492976, "field 'bt_regist'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.doRegist();
+        }
+      });
+    view = finder.findRequiredView(source, 2131492975, "field 'bt_login' and method 'doLogin'");
+    target.bt_login = finder.castView(view, 2131492975, "field 'bt_login'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.doLogin();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493020, "field 'tv_title'");
+    target.tv_title = finder.castView(view, 2131493020, "field 'tv_title'");
+  }
+
+  @Override public void unbind(T target) {
+    super.unbind(target);
+
+    target.username = null;
+    target.et_password = null;
+    target.loginProgress = null;
+    target.bt_regist = null;
+    target.bt_login = null;
+    target.tv_title = null;
+  }
+}

@@ -1,0 +1,117 @@
+// Generated code from Butter Knife. Do not modify!
+package com.diligroup.activity;
+
+import android.view.View;
+import butterknife.ButterKnife.Finder;
+
+public class UserInfoActivity$$ViewBinder<T extends com.diligroup.activity.UserInfoActivity> extends com.diligroup.base.BaseAcitvity$$ViewBinder<T> {
+  @Override public void bind(final Finder finder, final T target, Object source) {
+    super.bind(finder, target, source);
+
+    View view;
+    view = finder.findRequiredView(source, 2131493064, "method 'ClickMinzu'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickMinzu();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493052, "method 'ClickSex'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickSex();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493054, "method 'ClickBirthday'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickBirthday();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493058, "method 'ClickHeight'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickHeight();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493071, "method 'ClickOther'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickOther();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493070, "method 'ClickTsrq'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickTsrq();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493066, "method 'ClickTaste'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickTaste();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493062, "method 'ClickWhere'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickWhere();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493060, "method 'ClickWeight'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickWeight();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493068, "method 'ClickYsjj'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickYsjj();
+        }
+      });
+    view = finder.findRequiredView(source, 2131493056, "method 'ClickWork'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.ClickWork();
+        }
+      });
+  }
+
+  @Override public void unbind(T target) {
+    super.unbind(target);
+
+  }
+}

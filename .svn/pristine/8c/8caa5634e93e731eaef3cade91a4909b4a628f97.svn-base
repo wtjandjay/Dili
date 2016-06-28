@@ -1,0 +1,30 @@
+// Generated code from Butter Knife. Do not modify!
+package com.diligroup.activity.user;
+
+import android.view.View;
+import butterknife.ButterKnife.Finder;
+
+public class ReportOther$$ViewBinder<T extends com.diligroup.activity.user.ReportOther> extends com.diligroup.base.BaseAcitvity$$ViewBinder<T> {
+  @Override public void bind(final Finder finder, final T target, Object source) {
+    super.bind(finder, target, source);
+
+    View view;
+    view = finder.findRequiredView(source, 2131492985, "field 'lv_others'");
+    target.lv_others = finder.castView(view, 2131492985, "field 'lv_others'");
+    view = finder.findRequiredView(source, 2131492986, "method 'reportOther'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.reportOther();
+        }
+      });
+  }
+
+  @Override public void unbind(T target) {
+    super.unbind(target);
+
+    target.lv_others = null;
+  }
+}

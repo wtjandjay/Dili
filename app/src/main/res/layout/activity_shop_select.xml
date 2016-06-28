@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ShopSelectActivity">
+
+    <include
+        layout="@layout/comm_title"
+        />
+
+
+    <com.diligroup.view.CityPicker
+        android:id="@+id/citypicker"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+    </com.diligroup.view.CityPicker>
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/bt_ok_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="确定" />
+</LinearLayout>
