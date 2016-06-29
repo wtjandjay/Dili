@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.diligroup">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 这个权限用于进行网络定位  百度地图api-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!-- 用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!-- SD卡读取权限，用户写入离线定位数据-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+
+    <application
+        android:name=".base.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.NearShopActivity">
+
+        </activity>
+        <activity android:name=".activity.ShopSelectActivity" />
+        <activity android:name=".activity.RegistActivity"></activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.UserInfoActivity"></activity>
+        <activity android:name=".activity.user.ReportSex" />
+        <activity android:name=".activity.user.ReportBirthday" />
+        <activity android:name=".activity.user.ReportHeight" />
+        <activity android:name=".activity.user.ReportWeight" />
+        <activity android:name=".activity.user.ReportMinZu" />
+        <activity android:name=".activity.user.ReportWhere" />
+        <activity android:name=".activity.user.ReportTaste" />
+        <activity android:name=".activity.user.ReportNoeat" />
+        <activity android:name=".activity.user.ReportWork" />
+        <activity android:name=".activity.user.ReportSpecial" />
+        <activity android:name=".activity.user.ReportOther" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.UserCenterView"></activity>
+        <activity android:name=".HomeActivity">
+
+        </activity>
+        <activity android:name=".activity.AddFoodView">
+
+        </activity>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent自己的key" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--友盟key-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="577201d4e0f55a7aea0007fd"></meta-data>
+        <!--百度地图api-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="gsSG0QaVGuQYWMVGgAMlBrUtDYuMRnn2" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <!--<intent-filter>-->
+            <!--<action android:name="com.baidu.location.service_v2.2" >-->
+            <!--</action>-->
+            <!--</intent-filter>-->
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,71 @@
+package com.diligroup;
+
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.diligroup.base.BaseAcitvity;
+import com.diligroup.net.NetUtils;
+import com.diligroup.utils.BDLocationUtil;
+
+import butterknife.Bind;
+import butterknife.OnClick;
+
+public class MainActivity extends BaseAcitvity {
+    @Bind(R.id.id_imageview)
+    ImageView iv_show;
+    @Bind(R.id.id_textview)
+    TextView tv_text;
+    @Bind(R.id.open_location)
+    Button open_location;
+
+    @Override
+    protected int getContentViewLayoutID() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onNetworkConnected(NetUtils.NetType type) {
+
+    }
+
+    @Override
+    protected void onNetworkDisConnected() {
+
+    }
+
+    @Override
+    protected void initViewAndData() {
+
+    }
+
+    @OnClick(R.id.open_location)
+    public void startLocation() {
+        BDLocationUtil.getInstance().startLocation();
+    }
+//    public void getImage(View view) {
+//        String img_url="http://images.csdn.net/20160621/VR.jpg";
+//        OkHttpUtils.get().url(img_url)
+//                .tag(this)
+//                .build()
+//                .execute(new BitmapCallback() {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onResponse(Bitmap response, int id) {
+//                        iv_show.setImageBitmap(response);
+//                    }
+//                });
+//    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+//        OkHttpUtils.getInstance().cancelTag(this);
+    }
+
+
+}

@@ -1,0 +1,36 @@
+package com.diligroup;
+
+import com.diligroup.base.BaseAcitvity;
+import com.diligroup.net.NetUtils;
+import com.diligroup.utils.BDLocationUtil;
+
+import butterknife.OnClick;
+
+public class MainActivity extends BaseAcitvity {
+//    @Bind(R.id.id_imageview)
+//    ImageView iv_show;
+//    @Bind(R.id.id_textview)
+//    TextView tv_text;
+//    @Bind(R.id.open_location)
+//    Button open_location;
+    @Override
+    protected int getContentViewLayoutID() {
+        return R.layout.activity_main;
+    }
+    @Override
+    protected void onNetworkConnected(NetUtils.NetType type) {
+
+    }
+    @Override
+    protected void onNetworkDisConnected() {
+
+    }
+    @Override
+    protected void initViewAndData() {
+
+    }
+    @OnClick(R.id.open_location)
+    public void startLocation() {
+        BDLocationUtil.getInstance().startLocation();
+    }
+}

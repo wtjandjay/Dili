@@ -1,78 +1,94 @@
 package com.diligroup;
 
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
-import com.diligroup.utils.ToastUtil;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.BitmapCallback;
-import com.zhy.http.okhttp.callback.StringCallback;
+import com.baidu.mapapi.cloud.CloudListener;
+import com.baidu.mapapi.cloud.CloudManager;
+import com.baidu.mapapi.cloud.CloudPoiInfo;
+import com.baidu.mapapi.cloud.CloudSearchResult;
+import com.baidu.mapapi.cloud.DetailSearchResult;
+import com.baidu.mapapi.cloud.NearbySearchInfo;
+import com.diligroup.base.BaseAcitvity;
+import com.diligroup.net.NetUtils;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
-import okhttp3.Call;
+import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
-    //    @Bind(R.id.bt_curry)
-//    Button bt_ok;
-    @Bind(R.id.id_imageview)
-    ImageView iv_show;
-    @Bind(R.id.id_textview)
-    TextView tv_text;
+public class MainActivity extends BaseAcitvity implements CloudListener{
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    //    @Bind(R.id.id_imageview)
+//    ImageView iv_show;
+//    @Bind(R.id.id_textview)
+//    TextView tv_text;
+    @Bind(R.id.open_location)
+    Button open_location;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-
-    }
-
-    public void getImage(View view) {
-        String img_url="http://images.csdn.net/20160621/VR.jpg";
-        OkHttpUtils.get().url(img_url)
-                .tag(this)
-                .build()
-                .execute(new BitmapCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(Bitmap response, int id) {
-                        iv_show.setImageBitmap(response);
-                    }
-                });
+    protected int getContentViewLayoutID() {
+        return R.layout.activity_main;
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        OkHttpUtils.getInstance().cancelTag(this);
-    }
-    public void getHtml(View view) {
-        String url = "http://www.csdn.net/";
-        OkHttpUtils.get()
-                .url(url)
-                .addParams("username", "wtjandjay")
-                .addParams("password", "wtjandjay")
-                .tag(this)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
+    protected void onNetworkConnected(NetUtils.NetType type) {
 
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        ToastUtil.showLong(MainActivity.this, response);
-                    }
-                });
     }
 
+    @Override
+    protected void onNetworkDisConnected() {
+
+    }
+
+    @Override
+    protected void initViewAndData() {
+
+    }
+
+    @OnClick(R.id.open_location)
+    public void startLocation() {
+        CloudManager.getInstance().init(MainActivity.this);
+        NearbySearchInfo info = new NearbySearchInfo();
+        info.ak = "D9ace96891048231e8777291cda45ca0";
+        info.geoTableId = 32038;
+        info.radius = 30000;
+        info.location = "116.478054,39.91951";
+        CloudManager.getInstance().nearbySearch(info);
+    }
+
+    @Override
+    public void onGetSearchResult(CloudSearchResult cloudSearchResult, int i) {
+        if (cloudSearchResult != null && cloudSearchResult.poiList != null
+                && cloudSearchResult.poiList.size() > 0) {
+            Log.d(TAG, "onGetSearchResult, result length: " + cloudSearchResult.poiList.size());
+            for (CloudPoiInfo info : cloudSearchResult.poiList) {
+                String address = info.address;
+                String city = info.city;
+                String province = info.province;
+                int distance = info.distance;
+                String title = info.title;
+                String district = info.district;
+
+                Log.e("address==", address);
+                Log.e("city==", city);
+                Log.e("province==", province);
+                Log.e("title==", title);
+                Log.e("district==", district);
+                Log.e("dinstance====", String.valueOf(distance));
+            }
+        }
+    }
+
+    @Override
+    public void onGetDetailSearchResult(DetailSearchResult result, int i) {
+        if (result != null) {
+            if (result.poiInfo != null) {
+                Toast.makeText(MainActivity.this, result.poiInfo.title,
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainActivity.this,
+                        "status:" + result.status, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
