@@ -23,7 +23,8 @@ import butterknife.ButterKnife;
 public abstract class BaseAcitvity extends AppCompatActivity {
     @Bind(R.id.comm_title)
     public TextView tv_title;
-//    Context mContext = null;
+    Context mContext = null;
+
     protected abstract int getContentViewLayoutID();
 
     /**
@@ -125,7 +126,6 @@ public abstract class BaseAcitvity extends AppCompatActivity {
         ButterKnife.unbind(this);
         AppManager.getAppManager().finishActivity(this);
         NetStateReceiver.removeRegisterObserver(mNetChangeObserver);
-        NetStateReceiver.unRegisterNetworkStateReceiver(this);
     }
 
     /**
